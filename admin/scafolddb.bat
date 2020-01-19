@@ -1,0 +1,1 @@
+Scaffold-DbContext "server=localhost;database=fuel;uid=root;pwd=;" Pomelo.EntityFrameworkCore.MySql -OutputDir Models -f

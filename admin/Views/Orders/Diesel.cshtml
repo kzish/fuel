@@ -1,0 +1,64 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+    var diesel_orders = (List<admin.Models.MOrders>)ViewBag.diesel_orders;
+}
+<style>
+    @*style the drop down select entries - datatables*@
+    .custom-select
+    {
+        height:30px!important;
+        width:50px!important;
+        margin-left:5px!important;
+    }
+    @*style the copy buttons- datatables*@
+    .dt-buttons
+    {
+        margin-left:4px!important;
+    }
+</style>
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <table id="dt" class="table tblsm">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Mobile</th>
+                        <th>Fuel Type</th>
+                        <th>Litres</th>
+                        <th>State</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in diesel_orders)
+                    {
+                        <tr>
+                            <td title="@item.Date.ToString("yyyy-MM-dd")">@item.Date.ToString("yyyy-MM-dd")</td>
+                            <td title="@item.Mobile">@item.Mobile</td>
+                            <td title="@admin.Models.Globals.GetFuelType(item.FuelType)">@admin.Models.Globals.GetFuelType(item.FuelType)</td>
+                            <td title="@item.Litres">@item.Litres</td>
+                            <td title="@item.State">@item.State</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+    $('#dt').DataTable({
+        select: true,
+        responsive: true,
+        dom: 'lBfrtip',
+        buttons: [
+            'copyHtml5',
+            'excelHtml5',
+            'csvHtml5',
+            'pdfHtml5'
+        ]
+    });
+</script>

@@ -1,0 +1,106 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+    var fuelstations = (List<admin.Models.MFuelStations>)ViewBag.fuelstations;
+}
+<style>
+    @*style the drop down select entries - datatables*@
+    .custom-select
+    {
+        height:30px!important;
+        width:50px!important;
+        margin-left:5px!important;
+    }
+    @*style the copy buttons- datatables*@
+    .dt-buttons
+    {
+        margin-left:4px!important;
+    }
+</style>
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <a href="/FuelStations/AddNewFuelStation" class="btn btn-primary btn-sm">
+                <i class="fa fa-plus"></i>
+                Add New Station
+            </a>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-12">
+            <table id="dt" class="table tblsm">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Diesel Price</th>
+                        <th>Diesel Litres</th>
+                        <th>Petrol Price</th>
+                        <th>Petrol Litres</th>
+                        <th>LPG Gas Price</th>
+                        <th>LPG Gas Litres</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in fuelstations)
+                    {
+                        <tr>
+                            <td title="@item.Name">@item.Name</td>
+                            <td title="@item.DieselPrice">@item.DieselPrice</td>
+                            <td title="@item.DieselLitres">@item.DieselLitres</td>
+                            <td title="@item.PetrolPrice">@item.PetrolPrice</td>
+                            <td title="@item.PetrolLitres">@item.PetrolLitres</td>
+                            <td title="@item.LpgGasPrice">@item.LpgGasPrice</td>
+                            <td title="@item.LpgGasLitres">@item.LpgGasLitres</td>
+                            <td>
+                                <a href="/FuelStations/EditFuelStation/@item.Id" style="color:blue;">
+                                    Open
+                                </a> |
+                                <a href="#" onclick="confirm_delete('@item.Id'); return false;" style="color:red;">
+                                    Delete
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    $('#dt').DataTable({
+        select: true,
+        responsive: true,
+        dom: 'lBfrtip',
+        buttons: [
+            'copyHtml5',
+            'excelHtml5',
+            'csvHtml5',
+            'pdfHtml5'
+        ]
+    });
+
+
+    function confirm_delete(id) {
+        $.confirm({
+            title: 'Information',
+            type: "red",
+            content: 'Delete this asset?',
+            buttons: {
+                Yes: function () {
+                    window.location = "/FuelStations/DeleteFuelStation/" + id;
+                },
+                No: function () {
+                },
+
+            }
+        });
+
+    }
+
+</script>

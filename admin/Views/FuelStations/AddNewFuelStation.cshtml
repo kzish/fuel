@@ -1,0 +1,85 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <form method="post" action="/FuelStations/AddNewFuelStation">
+
+                <div class="form-group">
+                    <label class="form-control-label">Name</label>
+                    <input required type="text" class="form-control" name="Name">
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="form-control-label">Latitude</label>
+                            <input required type="number" step="any"  class="form-control" name="Latitude">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="form-control-label">Longitude</label>
+                            <input required type="number" step="any"  class="form-control" name="Longitude">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="form-control-label">DieselLiters</label>
+                            <input required type="number" step="any" min="0" class="form-control" name="DieselLitres">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="form-control-label">DieselPrice</label>
+                            <input required type="number" step="any" min="0" class="form-control" name="DieselPrice">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="form-control-label">PetrolLitres</label>
+                            <input required type="number" step="any" min="0" class="form-control" name="PetrolLitres">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="form-control-label">PetrolPrice</label>
+                            <input required type="number" step="any" min="0" class="form-control" name="PetrolPrice">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="form-control-label">LpgGasLitres</label>
+                            <input required type="number" step="any" min="0" class="form-control" name="LpgGasLitres">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="form-control-label">LpgGasPrice</label>
+                            <input required type="number" step="any" min="0" class="form-control" name="LpgGasPrice">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <button class="btn btn-primary" type="submit">Save</button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+

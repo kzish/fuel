@@ -1,0 +1,88 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+    var station = (admin.Models.MFuelStations)ViewBag.station;
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <form method="post" action="/FuelStations/EditFuelStation">
+
+                <input required type="hidden" class="form-control" name="Id" value="@station.Id">
+
+                <div class="form-group">
+                    <label class="form-control-label">Name</label>
+                    <input required type="text" class="form-control" name="Name" value="@station.Name">
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="form-control-label">Latitude</label>
+                            <input required type="number" step="any" class="form-control" name="Latitude" value="@station.Latitude">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="form-control-label">Longitude</label>
+                            <input required type="number" step="any" class="form-control" name="Longitude" value="@station.Longitude">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="form-control-label">DieselLiters</label>
+                            <input required type="number" step="any" min="0" class="form-control" name="DieselLitres" value="@station.DieselLitres">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="form-control-label">DieselPrice</label>
+                            <input required type="number" step="any" min="0" class="form-control" name="DieselPrice" value="@station.DieselPrice">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="form-control-label">PetrolLitres</label>
+                            <input required type="number" step="any" min="0" class="form-control" name="PetrolLitres" value="@station.PetrolLitres">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="form-control-label">PetrolPrice</label>
+                            <input required type="number" step="any" min="0" class="form-control" name="PetrolPrice" value="@station.PetrolPrice">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="form-control-label">LpgGasLitres</label>
+                            <input required type="number" step="any" min="0" class="form-control" name="LpgGasLitres" value="@station.LpgGasLitres">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="form-control-label">LpgGasPrice</label>
+                            <input required type="number" step="any" min="0" class="form-control" name="LpgGasPrice" value="@station.LpgGasPrice">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <button class="btn btn-primary" type="submit">Save</button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
